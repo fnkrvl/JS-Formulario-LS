@@ -10,7 +10,7 @@ function eventListeners(){
 }
 
 
-// Funtions
+// Functions
 function agregarTweet(e) {
     e.preventDefault();
     // Read the value of the textarea
