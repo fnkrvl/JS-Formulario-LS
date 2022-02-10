@@ -7,6 +7,9 @@ eventListeners();
 function eventListeners(){
     // Sending the form
     document.querySelector('#formulario').addEventListener('submit', agregarTweet);
+
+    // Delete tweets
+    document.addEventListener('click', deleteTweet);
 }
 
 
@@ -17,15 +20,25 @@ function agregarTweet(e) {
     const tweet = document.getElementById('tweet').value;
     // Create delete button
     const deleteButton = document.createElement('a');
+    deleteButton.href = window.location.href;
     deleteButton.classList = 'delete-tweet';
-    deleteButton.innerHTML = 'X'; 
+    deleteButton.innerText = 'X'; 
 
     // Create element and add the content to the list
     const li = document.createElement('li');
-    li.innerHTML = tweet;
+    li.innerText = tweet;
     // Add the delete button to the tweet
     li.appendChild(deleteButton);
     // Add the tweet to the list
     listaTweets.appendChild(li);
 
+}
+
+
+function deleteTweet() {
+    e.preventDefault();
+    if (e.target.className === 'delete-tweet') {
+        e.target.parentElement.remove();
+        console.log(e.target.parentElement.remove());
+    }
 }
