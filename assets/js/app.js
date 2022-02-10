@@ -20,9 +20,8 @@ function agregarTweet(e) {
     const tweet = document.getElementById('tweet').value;
     // Create delete button
     const deleteButton = document.createElement('a');
-    deleteButton.href = window.location.href;
     deleteButton.classList = 'delete-tweet';
-    deleteButton.innerText = 'X'; 
+    deleteButton.innerText = 'X';
 
     // Create element and add the content to the list
     const li = document.createElement('li');
@@ -35,10 +34,9 @@ function agregarTweet(e) {
 }
 
 
-function deleteTweet() {
-    e.preventDefault();
+function deleteTweet(e) {
     if (e.target.className === 'delete-tweet') {
+        e.preventDefault();
         e.target.parentElement.remove();
-        console.log(e.target.parentElement.remove());
-    }
+     }
 }
